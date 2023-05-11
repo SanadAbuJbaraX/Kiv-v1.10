@@ -4,7 +4,7 @@ source code of dynamic Kiv programming language v1.1.0 (finale version of v1)
 If your os supports .exe
 - add builds folder to enviroment variables then
 - ```kiv file.kiv```
-Else
+- else
 - ```python PATH/To/repositry/kiv file.kiv```
 # Shell 🐢
 - ```python PATH/To/repositry/kiv/kivshell.py```
