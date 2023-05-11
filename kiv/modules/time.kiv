@@ -1,0 +1,13 @@
+import "time"
+
+var startT = counter()
+var x = input("Write Anything: ")
+var endT = counter()
+print("It took you " + toString(endT - startT) + "s to type \'" + x + "\'")
+
+var secs = toFloat(input("Chose a number: "))
+print("Wait For it")
+var startT = counter()
+sleep(secs)
+var endT = counter()
+print("just wasted " + toString(endT - startT) + "s of your time")

@@ -1,0 +1,37 @@
+import "builtins.kiv"
+
+function read_csv(file) do
+    var rows = split(open(file),"\n")
+    var cols = []
+    for i=0 until len(rows) do
+        var cols = cols + split(index(rows,i),",")
+    end
+    return cols
+end
+function get_all_csv(cols,key) do
+    if len(cols) == 0 do
+        return null
+    end
+    var keys = index(cols,0)
+    var keyIndex = find(keys,key)
+    if keyIndex == -1 do
+        return null
+    end
+    var keysFound = []
+    for i=0 until len(cols)-1 do 
+        if i==0 do
+            continue
+        end
+        var keysFound = append(keysFound,index(index(cols,i),keyIndex))
+    end
+    return keysFound
+end
+// var cols = read_csv("file.csv")
+function create_dict(keyList,valueList) do
+    var dict = []
+    for i=0 until len(keyList) do
+        var dict = dict + [index(keyList,i),index(valueList,i)]
+    end
+
+    return dict
+end

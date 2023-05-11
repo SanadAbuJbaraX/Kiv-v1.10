@@ -1,0 +1,25 @@
+import "builtins.kiv"
+var pi = 3.14159265358979
+
+function sqrt(x) do
+    return x ^ 2
+end
+function abs(x) do
+    if x >= 0 do
+        return x
+    end
+    return removeIndex(toString(x),0)
+end
+function find_circle_area(radius) do
+    return pi * radius ^ 2
+end
+function find_circle_circumference(radius) do
+    return 2 * pi * radius
+end
+print(round(1.28,1))
+print("Circle Info")
+var radius = toFloat(input("Radius: "))
+var area = find_circle_area(radius)
+var circumference = find_circle_circumference(radius)
+
+print("Area: " + toString(area) + "\nCircumference: "+ toString(circumference) + "\nAbs of -2: " + abs(-2))

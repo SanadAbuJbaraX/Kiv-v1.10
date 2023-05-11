@@ -1,0 +1,141 @@
+//Made by Sanad Abujbara
+// kiv v1.0.0
+
+
+// Built in functions
+
+
+function append(obj,elem)-> obj + elem // For e.g var list = [1,2];var list = append(list,3) -> list = [1,2,3] or var str ="ab" var str = append(str,"3") -> "123"   
+
+// contains("123","1") -> true , contains("123","4") -> false
+function find(obj,chr) do
+    if type(obj) == "Int" | type(obj) == "Float" do
+        var obj = toString(obj)
+    end
+    for i=0 until len(obj) do
+        if index(obj,i) == chr do
+            return i
+        end
+    end      
+    return -1
+end
+// find("123","1") -> 0 explanation one is the first element in "123" with index 0 find("123","4") -> -1 "4" is not in "123" so it returns -1
+function removeIndex(obj,indexR) do
+    var result = ""
+    for i=0 until len(obj) do
+        if i==indexR do
+            continue
+        end
+        var result = toString(result) + toString(index(obj,i))
+    end
+    return result
+end
+function removeIndexFrom(obj,startI,endI) do
+    var indexToRemove = range(startI,endI)
+    var result = ""
+    for i=0 until len(obj) do
+        if is_in(indexToRemove,i) do
+            continue
+        else 
+            var result = toString(result) + toString(index(obj,i))
+        end
+    end
+    return result
+end
+// removeIndex("123",0) -> "23" removes index from a string or list for e.g removeIndex("123",1) removes char | element with index 1
+function fromIndex(obj,startI,endI) do
+    var result = ""
+    for i=0 until len(obj) do
+        if i==startI do
+            while i < endI do
+                var result = result + toString(index(obj,i))
+                var i = i + 1
+            end
+        end
+    end
+    return result
+end
+
+// Dicts syntax -> [[key1,value1],[key2,value2]]
+function clear_dict() do
+    return []
+end
+function describe_dict(dict) do
+    var result = "{"
+    for i=0 until len(dict) do
+        var pair = index(dict,i)
+        var result = result + index(pair,0) + ":" + toString(index(pair,1)) + ","
+    end
+    var result = removeIndex(result,len(result)-1)
+    var result = result + "}"
+    return result
+end
+function split(string,on) do
+    var res = []
+    var current_word = ""
+    if type(string) != "String" do
+        return "TypeError: "
+    end
+    for i=0 until len(string) do
+        var current_char = index(string,i)
+        if current_char == on do
+            var res = res + current_word
+            var current_word = ""
+            continue
+        end
+        var current_word = current_word + current_char
+    end
+    var res = res + current_word
+    return res
+end
+function get_dict(dict,key) do
+    for i=0 until len(dict) do
+        var pair = index(dict,i)
+        if index(pair,0) == key do
+            return index(pair,1)
+        end
+    end
+    return null
+end
+//dict of converting from lower to upper
+var lowertoUpper = [["a","A"],["b","B"],["c","C"],["d","D"],["e","E"],["f","F"],["g","G"],["h","H"],["i","I"],["j","J"],["k","K"],["l","L"],["m","M"],["n","N"],["o","O"],["p","P"],["q","Q"],["r","R"],["s","S"],["t","T"],["u","U"],["v","V"],["w","W"],["x","X"],["y","Y"],["z","Z"]]
+var Uppertolower = [["A","a"],["B","b"],["C","c"],["D","d"],["E","e"],["F","f"],["G","g"],["H","h"],["I","i"],["J","j"],["K","k"],["L","l"],["M","m"],["N","n"],["O","o"],["P","p"],["Q","q"],["R","r"],["S","s"],["T","t"],["U","u"],["V","v"],["W","w"],["X","x"],["Y","y"],["Z","z"]]
+var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var lower = "abcdefghijklmnopqrstuvwxyz"
+var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+function tolower(string) do
+    if type(string) != "String" do
+        return "TypeError: "
+    end
+    var res = ""
+    var current_char = ""
+    for i=0 until len(string) do
+        var current_char = index(string,i)
+        if is_in(upper,current_char) do
+            var current_char = get_dict(Uppertolower,current_char)
+            var res = res + current_char
+            continue
+        end
+        var res = res + current_char
+    end
+    return res
+end
+
+function toUpper(string) do
+    if type(string) != "String" do
+        return "TypeError: "
+    end
+    var res = ""
+    var current_char = ""
+    for i=0 until len(string) do
+        var current_char = index(string,i)
+        if is_in(lower,current_char) do
+            var current_char = get_dict(lowertoUpper,current_char)
+            var res = res + current_char
+            continue
+        end
+        var res = res + current_char
+    end
+    return res
+end

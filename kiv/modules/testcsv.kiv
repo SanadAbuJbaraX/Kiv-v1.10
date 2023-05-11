@@ -1,0 +1,27 @@
+import "file.kiv"
+
+print("Welcome to Secret Granter\n")
+
+var cols = read_csv("testcsv.csv")
+var names = get_all_csv(cols,"Name")
+var passwords = get_all_csv(cols,"Password")
+var passwords = create_dict(names,passwords)
+var name = tolower(input("What is your name: "))
+var found = get_all_csv(cols,"Name")
+var secrets = get_all_csv(cols,"Secrets")
+var secrets = create_dict(names,secrets)
+var secret = ""
+if not is_in(found,name) do
+    print("Name not registered")
+else 
+    var pass = get_dict(passwords,name) 
+    var passInput = input("Password: ")
+    if pass == passInput do
+        print("\nAccess Granted\n")
+        var secret = get_dict(secrets,name)
+        print("Secret: " + toString(secret) + "\n")
+    else
+        print("Access Denied")
+    end
+    
+end

@@ -1,0 +1,39 @@
+function draw(layers) do
+    cls()
+    var layer = 0
+    var count = 1
+    while layer < layers do
+        print("*" * count)
+        var layer = layer + 1
+        var count = count + 1
+    end
+end
+function quote(double,obj) do
+    if double do
+        return "\"" + toString(obj) + "\""
+    else
+        return "\'" + toString(obj) + "\'"
+    end
+end
+function wants() do
+    var wants = input("Try Again Y/n ")
+    if wants == "y"  | wants == "Y" do
+        return true
+    elseif wants == "n" | wants == "N" do
+        cls()
+        return false
+    else 
+        cls()
+        print("Unrecognized option: " + quote(false,wants) + " auto abort")
+        return false
+    end
+end
+
+while true do
+    cls()
+    var layers = toInt(input("How many layers is your traingle: "))
+    draw(layers)
+    if not wants() do
+        break
+    end    
+end
