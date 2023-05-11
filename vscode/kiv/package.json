@@ -1,0 +1,25 @@
+{
+    "name": "kiv",
+    "displayName": "Kiv",
+    "description": "Kiv Programming Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.77.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "kiv",
+            "aliases": ["Kiv", "kiv"],
+            "extensions": [".kiv"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "kiv",
+            "scopeName": "source.kiv",
+            "path": "./syntaxes/kiv.tmLanguage.json"
+        }]
+    }
+}

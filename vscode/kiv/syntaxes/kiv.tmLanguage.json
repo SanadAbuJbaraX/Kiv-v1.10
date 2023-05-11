@@ -1,0 +1,92 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Kiv",
+	"patterns": [
+		
+		{
+			"include" : "#comments"
+		},
+		
+		{
+			"include": "#keywords"
+		},
+		
+		{
+			"include":"#constant"
+		},
+		{
+			"include":"#numbers"
+		},
+		{
+			"include": "#functions"
+		},
+		
+		
+		{
+			"include": "#strings"
+		}
+		
+	],
+	"repository": {
+		"comments" : {
+			
+				"captures": {
+					"1": {
+						"name": "punctuation.definition.comment.kiv"
+					}
+				},
+				"match": "(//).*$\\n?",
+				"name": "comment.line.double-slash.kiv"
+			
+		},
+		
+		
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.kiv",
+				"match": "\\b(if|elseif|else|step|while|for|return|function|until|do|end|var|continue|break|not|import)\\b"
+			},
+			{
+				"match": "\\b([+*/%-]=)\\b",
+				"name": "keyword.operator.assignment.arithmetic.kiv"
+			}
+			
+		]
+		},
+		"constant":{
+			"name":"constant.language.kiv",
+			"match": "\\b(true|false|null|print|input|len|index|open|type|toInt|toFloat|toString|range)\\b"
+		},
+		"numbers":{
+			"name": "constant.numeric.kiv",
+			"match": "[0-9]."
+		},
+		"functions" : {
+			"patterns": [{
+				"name":"variable.function.kiv",
+				"match": "(?:\\b|(?=\\.))((?:[a-zA-Z._][\\w.]*|`[^`]+`))\\s*(\\()"
+			},
+		{
+			"name":"variable.other.kiv",
+			"match": "[a-zA-Z0-9_]+"
+		}
+			]
+		},
+		
+		"strings": {
+			"name": "string.quoted.double.kiv",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.kiv",
+					"match": "\\\\."
+				}
+			]
+		}
+		
+		
+	},
+	
+	"scopeName": "source.kiv"
+}
