@@ -12,13 +12,19 @@ If your os supports .exe
 this is sll a beta version meaning not all binaries are found very few buildin functions and libraries and bad perfermonce hopefully all if this will be fixed in kiv v2
 # Syntax
 ```
-function name(param1) do
-  for i=0 until do
-    print(i)
-  end
+function add(x,y) do
+  return x+y
 end
  
 while true do
-  name("s")
+  for i=0 until 5 do
+    if i==4 do
+      break
+    elseif i==3 do
+      continue
+    end
+    print(add(i,1))
+    end
+  end
 end
 ```
