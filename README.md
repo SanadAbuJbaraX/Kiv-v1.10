@@ -17,17 +17,20 @@ else
 this is sll a beta version meaning not all binaries are found very few buildin functions and libraries and bad perfermonce hopefully all if this will be fixed in kiv v2
 # Syntax
 ```
-function add(x,y) do
+import "time" // builtin module
+sleep(1) // pauses the program for 1 second
+// comment
+function add(x,y) do // start after do
   return x+y
-end
- 
-while true do
+end // end here
+var subtract = function(x,y) -> x-y // lambda + vrariables
+while true do // while loop
   for i=0 until 5 do
     if i==4 do
       break
     elseif i==3 do
       continue
-    end
+    end // end is after condition block so after else | elseif (if found) if only if is found after if
     print(add(i,1))
     end
   end
