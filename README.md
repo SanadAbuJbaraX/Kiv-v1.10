@@ -1,5 +1,5 @@
 # Kiv-v1.10 🔥
-source code of dynamic Kiv programming language v1.1.0 (finale version of v1)
+source code of dynamic Kiv programming language v1.1.0
 # If your os supports .exe
 - add builds folder to enviroment variables then
 # Run 🕹️
